@@ -1,2 +1,6 @@
 # vscode-snippets
-Snippets for Visual Studio Codes
+My snippets for Visual Studio Codes:
+
+Angular
+Node
+
