@@ -1,0 +1,38 @@
+{
+  "Angular Component": {
+    "prefix": "lrj-component",
+    "description": "Angular component",
+    "body": [
+      "import { Component, OnInit } from '@angular/core';",
+      "",
+      "@Component({",
+      "\tselector: '${1:selector-name}',",
+      "\ttemplateUrl: '${2:name}.html'",
+      "})",
+      "",
+      "export class ${3:Name}Component implements OnInit {",
+      "\tconstructor() { }",
+      "",
+      "\tngOnInit() { }$0",
+      "}"
+    ]
+  },
+  "Angular Service": {
+    "prefix": "lrj-service",
+    "description": "Angular service",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "",
+      "@Injectable()",
+      "export class ${1:Name}Service {",
+      "$0",
+      "\tconstructor() { }",
+      "}"
+    ]
+  },
+  "Output Event": {
+    "prefix": "lrj-output-event",
+    "body": ["@Output() ${1:eventName} = new EventEmitter<${2:eventType}>();"],
+    "description": "Angular @Output event and emitter"
+  }
+}

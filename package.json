@@ -1,0 +1,19 @@
+{
+  "name": "vscode-snippets",
+  "version": "1.0.0",
+  "description": "Visual Studio Code snippets for Angular, Node, inspired by John Papa's VSCode Snippets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spock123/vscode-snippets.git"
+  },
+  "author": "Lars Rye Jeppesen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spock123/vscode-snippets/issues"
+  },
+  "homepage": "https://github.com/spock123/vscode-snippets#readme"
+}
