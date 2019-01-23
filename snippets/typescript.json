@@ -3,11 +3,12 @@
     "prefix": "lrj-component",
     "description": "Angular component",
     "body": [
-      "import { Component, OnInit } from '@angular/core';",
+      "import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';",
       "",
       "@Component({",
       "\tselector: '${1:selector-name}',",
       "\ttemplateUrl: '${2:name}.html'",
+      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
       "})",
       "",
       "export class ${3:Name}Component implements OnInit {",
