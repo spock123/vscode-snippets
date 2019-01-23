@@ -7,7 +7,7 @@
       "",
       "@Component({",
       "\tselector: '${1:selector-name}',",
-      "\ttemplateUrl: '${2:name}.html'",
+      "\ttemplateUrl: '${2:name}.html',",
       "\tchangeDetection: ChangeDetectionStrategy.OnPush",
       "})",
       "",
