@@ -90,13 +90,18 @@
       "}"
     ]
   },
+
+
   "Angular Service": {
     "prefix": "lrj-service",
     "description": "Angular service",
     "body": [
       "import { Injectable } from '@angular/core';",
       "",
-      "@Injectable()",
+      "@Injectable({",
+      "\tprovidedIn: 'root'",
+      "})",
+      "",
       "export class ${1:Name}Service {",
       "$0",
       "\tconstructor() { }",
