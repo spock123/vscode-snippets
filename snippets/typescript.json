@@ -108,14 +108,7 @@
     "body": ["@Output() ${1:eventName} = new EventEmitter<${2:eventType}>();"],
     "description": "Angular @Output event and emitter"
   },
-  "Angular Component Input": {
-    "prefix": "lrj-input",
-    "body": [
-			"@Input('${1:name}') $1;",
-			"$0"
-		],
-    "description": "Angular @Input"
-  },
+  
   "Typescript Import": {
     "prefix": "lrj-import",
     "body": [
