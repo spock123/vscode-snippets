@@ -1,20 +1,92 @@
 {
+  "Angular View Component": {
+    "prefix": "lrj-view-component",
+    "description": "Angular smart component",
+    "body": [
+      "import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';",
+      "",
+      "@Component({",
+      "\tselector: '${1:selector-name}',",
+      "\ttemplateUrl: '${1:selector-name}.html',",
+      "\tstyleUrls: ['${1:selector-name}.scss'],",
+      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
+      "})",
+      "",
+      "export class ${2:Name}Component implements OnInit, OnDestroy {",
+      "",
+      "\tconstructor() { }",
+      "",
+      "\tngOnInit() { }$0",
+      "\tngOnDestroy() { }$0",
+      "}"
+    ]
+  },
   "Angular Component": {
     "prefix": "lrj-component",
     "description": "Angular component",
     "body": [
-      "import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';",
+      "import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';",
       "",
       "@Component({",
       "\tselector: '${1:selector-name}',",
-      "\ttemplateUrl: '${2:name}.html',",
+      "\ttemplateUrl: '${1:selector-name}.html',",
+      "\tstyleUrls: ['${1:selector-name}.scss'],",
+      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
+      "})",
+      "",
+      "export class ${2:Name}Component implements OnInit {",
+      "",
+      "\t//@Input() state;",
+      "",
+
+      "\tconstructor() { }",
+      "",
+      "\tngOnInit() { }$0",
+      "}"
+    ]
+  },
+  "Angular Form Component": {
+    "prefix": "lrj-form-component",
+    "description": "Angular form component",
+    "body": [
+      "import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';",
+      "import { FormBuilder, FormGroup, Validators } from '@angular/forms';",
+      "",
+      "@Component({",
+      "\tselector: '${1:selector-name}',",
+      "\ttemplateUrl: '${1:selector-name}.html',",
+      "\tstyleUrls: ['${1:selector-name}.scss'],",
       "\tchangeDetection: ChangeDetectionStrategy.OnPush",
       "})",
       "",
       "export class ${3:Name}Component implements OnInit {",
-      "\tconstructor() { }",
+      "",
+      "\t//@Input() state;",
+      "\t@Output() onSubmit = new EventEmitter();",
+      "",
+
+      "\tpublic form: FormGroup;",
+      "\tpublic submitted: boolean = false;",
+      "",
+
+      "\tconstructor( private formBuilder: FormBuilder) { ",
+      "\t\tthis.setupForm();",
+      "\t}",
       "",
       "\tngOnInit() { }$0",
+      "",
+
+      "\tsubmit() {",
+      "\t\tthis.submitted = true;",
+      "\t\tif(!this.form.valid) return;",
+      "\t\tthis.onSubmit.emit(this.form.value);",
+      "\t}",
+      "",
+    
+      "\tsetupForm() {",
+      "\t\tthis.form = this.formBuilder.group({})",
+      "\t}",
+      "",
       "}"
     ]
   },
