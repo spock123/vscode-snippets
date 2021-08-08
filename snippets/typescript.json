@@ -121,5 +121,21 @@
 			"$0"
 		],
     "description": "Angular @Input"
+  },
+
+
+  "Express Endpoint": {
+    "prefix": "lrj-endpoint",
+    "description": "Express Endpoint",
+    "body": [
+      "import { Request, Response} from 'express';",
+      "import { send, sendError } from '@lib';",
+      "",
+      "export const ${1:selector-name}Endpoint = async (req:Request, res:Response) => { ",
+      "\ttry {",
+      "\t\t send('ok', req, res);",
+      "\t}",
+      "}"
+    ]
   }
 }
