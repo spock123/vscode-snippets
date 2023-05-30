@@ -1,141 +1,175 @@
 {
-  "Angular View Component": {
-    "prefix": "lrj-view-component",
-    "description": "Angular smart component",
-    "body": [
-      "import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';",
-      "",
-      "@Component({",
-      "\tselector: '${1:selector-name}',",
-      "\ttemplateUrl: '${1:selector-name}.html',",
-      "\tstyleUrls: ['${1:selector-name}.scss'],",
-      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
-      "})",
-      "",
-      "export class ${2:Name}Component implements OnInit, OnDestroy {",
-      "",
-      "\tconstructor() { }",
-      "",
-      "\tngOnInit() { }$0",
-      "\tngOnDestroy() { }$0",
-      "}"
-    ]
-  },
-  "Angular Component": {
-    "prefix": "lrj-component",
-    "description": "Angular component",
-    "body": [
-      "import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';",
-      "",
-      "@Component({",
-      "\tselector: '${1:selector-name}',",
-      "\ttemplateUrl: '${1:selector-name}.html',",
-      "\tstyleUrls: ['${1:selector-name}.scss'],",
-      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
-      "})",
-      "",
-      "export class ${2:Name}Component implements OnInit {",
-      "",
-      "\t//@Input() state;",
-      "",
-
-      "\tconstructor() { }",
-      "",
-      "\tngOnInit() { }$0",
-      "}"
-    ]
-  },
-  "Angular Form Component": {
-    "prefix": "lrj-form-component",
-    "description": "Angular form component",
-    "body": [
-      "import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';",
-      "import { FormBuilder, FormGroup, Validators } from '@angular/forms';",
-      "",
-      "@Component({",
-      "\tselector: '${1:selector-name}',",
-      "\ttemplateUrl: '${1:selector-name}.html',",
-      "\tstyleUrls: ['${1:selector-name}.scss'],",
-      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
-      "})",
-      "",
-      "export class ${3:Name}Component implements OnInit {",
-      "",
-      "\t//@Input() state;",
-      "\t@Output() onSubmit = new EventEmitter();",
-      "",
-
-      "\tpublic form: FormGroup;",
-      "\tpublic submitted: boolean = false;",
-      "",
-
-      "\tconstructor( private formBuilder: FormBuilder) { ",
-      "\t\tthis.setupForm();",
-      "\t}",
-      "",
-      "\tngOnInit() { }$0",
-      "",
-
-      "\tsubmit() {",
-      "\t\tthis.submitted = true;",
-      "\t\tif(!this.form.valid) return;",
-      "\t\tthis.onSubmit.emit(this.form.value);",
-      "\t}",
-      "",
-    
-      "\tsetupForm() {",
-      "\t\tthis.form = this.formBuilder.group({})",
-      "\t}",
-      "",
-      "}"
-    ]
-  },
-
-
-  "Angular Service": {
-    "prefix": "lrj-service",
-    "description": "Angular service",
-    "body": [
-      "import { Injectable } from '@angular/core';",
-      "",
-      "@Injectable({",
-      "\tprovidedIn: 'root'",
-      "})",
-      "",
-      "export class ${1:Name}Service {",
-      "$0",
-      "\tconstructor() { }",
-      "}"
-    ]
-  },
-  "Angular Component Output": {
-    "prefix": "lrj-output-event",
-    "body": ["@Output() ${1:eventName} = new EventEmitter<${2:eventType}>();"],
-    "description": "Angular @Output event and emitter"
-  },
+	"Angular View Component": {
+	  "prefix": "lrj-view-component",
+	  "description": "Angular smart component",
+	  "body": [
+		"import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';",
+		"",
+		"@Component({",
+		"\tselector: '${1:selector-name}',",
+		"\ttemplateUrl: '${1:selector-name}.html',",
+		"\tstyleUrls: ['${1:selector-name}.scss'],",
+		"\tchangeDetection: ChangeDetectionStrategy.OnPush",
+		"})",
+		"",
+		"export class ${2:Name}Component implements OnInit, OnDestroy {",
+		"",
+		"\tconstructor() { }",
+		"",
+		"\tngOnInit() { }$0",
+		"\tngOnDestroy() { }$0",
+		"}"
+	  ]
+	},
+	"Angular Component": {
+	  "prefix": "lrj-component",
+	  "description": "Angular component",
+	  "body": [
+		"import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';",
+		"",
+		"@Component({",
+		"\tselector: '${1:selector-name}',",
+		"\ttemplateUrl: '${1:selector-name}.html',",
+		"\tstyleUrls: ['${1:selector-name}.scss'],",
+		"\tchangeDetection: ChangeDetectionStrategy.OnPush",
+		"})",
+		"",
+		"export class ${2:Name}Component implements OnInit {",
+		"",
+		"\t//@Input() state;",
+		"",
   
-  "Typescript Import": {
-    "prefix": "lrj-import",
-    "body": [
-			"import { ${2:name} }from '${1:file}';",
-			"$0"
-		],
-    "description": "Angular @Input"
-  },
-
-
-  "Express Endpoint": {
-    "prefix": "lrj-endpoint",
-    "description": "Express Endpoint",
-    "body": [
-      "import { Request, Response} from 'express';",
-      "import { send, sendError } from '@lib';",
-      "",
-      "export const ${1:selector-name}Endpoint = async (req:Request, res:Response) => { ",
-      "\ttry {",
-      "\t\t send('ok', req, res);",
-      "\t}",
-      "}"
-    ]
+		"\tconstructor() { }",
+		"",
+		"\tngOnInit() { }$0",
+		"}"
+	  ]
+	},
+	"Angular Standalone Component": {
+	  "prefix": "lrj-standalone",
+	  "description": "Angular standalone component",
+	  "body": [
+		"import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';",
+		"",
+		"@Component({",
+		"\tselector: '${1:selector-name}',",
+		"\tstandalone: true,",
+		"\tstyleUrls: ['${1:selector-name}.scss'],",
+		"\tchangeDetection: ChangeDetectionStrategy.OnPush,",
+		 "\ttemplate: `",
+		 "\t\t<h1>${1:selector-name}</h1>",
+		 "\t`",
+		"})",
+		"",
+		"export class ${2:Name}Component implements OnInit {",
+		"",
+		"\t//@Input() state;",
+		"",
+  
+		"\tconstructor() { }",
+		"",
+		"\tngOnInit() { }$0",
+		"}"
+	  ]
+	},
+	"Angular Form Component": {
+	  "prefix": "lrj-form-component",
+	  "description": "Angular form component",
+	  "body": [
+		"import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';",
+		"import { FormBuilder, FormGroup, Validators } from '@angular/forms';",
+		"",
+		"@Component({",
+		"\tselector: '${1:selector-name}',",
+		"\ttemplateUrl: '${1:selector-name}.html',",
+		"\tstyleUrls: ['${1:selector-name}.scss'],",
+		"\tchangeDetection: ChangeDetectionStrategy.OnPush",
+		"})",
+		"",
+		"export class ${3:Name}Component implements OnInit {",
+		"",
+		"\t//@Input() state;",
+		"\t@Output() onSubmit = new EventEmitter();",
+		"",
+  
+		"\tpublic form: FormGroup;",
+		"\tpublic submitted: boolean = false;",
+		"",
+  
+		"\tconstructor( private formBuilder: FormBuilder) { ",
+		"\t\tthis.setupForm();",
+		"\t}",
+		"",
+		"\tngOnInit() { }$0",
+		"",
+  
+		"\tsubmit() {",
+		"\t\tthis.submitted = true;",
+		"\t\tif(!this.form.valid) return;",
+		"\t\tthis.onSubmit.emit(this.form.value);",
+		"\t}",
+		"",
+	  
+		"\tsetupForm() {",
+		"\t\tthis.form = this.formBuilder.group({})",
+		"\t}",
+		"",
+		"}"
+	  ]
+	},
+  
+  
+	"Angular Service": {
+	  "prefix": "lrj-service",
+	  "description": "Angular service",
+	  "body": [
+		"import { Injectable } from '@angular/core';",
+		"",
+		"@Injectable({",
+		"\tprovidedIn: 'root'",
+		"})",
+		"",
+		"export class ${1:Name}Service {",
+		"$0",
+		"\tconstructor() { }",
+		"}"
+	  ]
+	},
+	"Angular Component Output": {
+	  "prefix": "lrj-output-event",
+	  "body": ["@Output() ${1:eventName} = new EventEmitter<${2:eventType}>();"],
+	  "description": "Angular @Output event and emitter"
+	},
+	
+	"Typescript Import": {
+	  "prefix": "lrj-import",
+	  "body": [
+			  "import { ${2:name} }from '${1:file}';",
+			  "$0"
+		  ],
+	  "description": "Angular @Input"
+	},
+  
+  
+	"Express Endpoint": {
+	  "prefix": "lrj-endpoint",
+	  "description": "Express Endpoint",
+	  "body": [
+		"import { Request, Response} from 'express';",
+		"import { send, sendError } from '$lib';",
+		"",
+		"export const ${1:selector-name}Endpoint = async (req:Request, res:Response) => { ",
+		"\ttry {",
+		"\t\t send('ok', req, res);",
+		"\t}",
+		"}",
+		"\tcatch (err) {",
+		"\t\t sendError(err, req, res);",
+		"\t}",
+		"}"
+  
+		
+	  ]
+	}
   }
-}
+  
