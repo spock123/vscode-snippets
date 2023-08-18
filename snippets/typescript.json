@@ -51,33 +51,7 @@
 		"}"
 	  ]
 	},
-	"Angular Standalone Component": {
-	  "prefix": "lrj-standalone",
-	  "description": "Angular standalone component",
-	  "body": [
-		"import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';",
-		"",
-		"@Component({",
-		"\tselector: '${1:selector-name}',",
-		"\tstandalone: true,",
-		"\tstyleUrls: ['${1:selector-name}.scss'],",
-		"\tchangeDetection: ChangeDetectionStrategy.OnPush,",
-		 "\ttemplate: `",
-		 "\t\t<h1>${1:selector-name}</h1>",
-		 "\t`",
-		"})",
-		"",
-		"export class ${2:Name}Component implements OnInit {",
-		"",
-		"\t//@Input() state;",
-		"",
-  
-		"\tconstructor() { }",
-		"",
-		"\tngOnInit() { }$0",
-		"}"
-	  ]
-	},
+	
 	"Angular Form Component": {
 	  "prefix": "lrj-form-component",
 	  "description": "Angular form component",
@@ -161,16 +135,15 @@
 	  "prefix": "lrj-endpoint",
 	  "description": "Express Endpoint",
 	  "body": [
-		"import { Request, Response} from 'express';",
-		"import { send, sendError } from '$lib';",
+		"import { Request, Response, NextFunction} from 'express';",
+		"import { send } from '\\$lib';",
 		"",
-		"export const ${1:selector-name}Endpoint = async (req:Request, res:Response) => { ",
+		"export const ${1:serviceName}Endpoint = async (req:Request, res:Response, next: NextFunction) => { ",
 		"\ttry {",
 		"\t\t send('ok', req, res);",
 		"\t}",
-		"}",
 		"\tcatch (err) {",
-		"\t\t sendError(err, req, res);",
+		"\t\t next(err)",
 		"\t}",
 		"}"
   
