@@ -1,146 +1,174 @@
 {
-  "Angular View Component": {
-    "prefix": "lrj-view-component",
-    "description": "Angular smart component",
-    "body": [
-      "import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';",
-      "",
-      "@Component({",
-      "\tselector: '${1:selector-name}',",
-      "\tstandalone: true,",
-      "\tproviders: [],",
-      "\timports: [],",
-      "\ttemplateUrl: '${1:selector-name}.html',",
-      "\tstyleUrl: '${1:selector-name}.scss',",
-      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
-      "})",
-      "",
-      "export class ${2:Name}Component implements OnInit, OnDestroy {",
-      "",
-      "\tconstructor() { }",
-      "",
-      "\tngOnInit() { }$0",
-      "\tngOnDestroy() { }$0",
-      "}"
-    ]
-  },
-  "Angular Component": {
-    "prefix": "lrj-component",
-    "description": "Angular component",
-    "body": [
-      "import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';",
-      "",
-      "@Component({",
-      "\tselector: '${1:selector-name}',",
-      "\tstandalone: true,",
-      "\tproviders: [],",
-      "\timports: [],",
-      "\ttemplateUrl: '${1:selector-name}.html',",
-      "\tstyleUrl: '${1:selector-name}.scss',",
-      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
-      "})",
-      "",
-      "export class ${2:Name}Component implements OnInit {",
-      "",
-      "\t//@Input() state;",
-      "",
+	"Angular View Component": {
+	  "prefix": "lrj-view-component",
+	  "description": "Angular smart component",
+	  "body": [
+		"import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';",
+		"",
+		"@Component({",
+		"\tselector: '${1:selector-name}',",
+		"\tstandalone: true,",
+		"\tproviders: [],",
+		"\timports: [],",
+		"\ttemplateUrl: '${1:selector-name}.html',",
+		"\tstyleUrl: '${1:selector-name}.scss',",
+		"\tchangeDetection: ChangeDetectionStrategy.OnPush",
+		"})",
+		"",
+		"export class ${2:Name}Component implements OnInit, OnDestroy {",
+		"",
+		"\tconstructor() { }",
+		"",
+		"\tngOnInit() { }$0",
+		"\tngOnDestroy() { }$0",
+		"}"
+	  ]
+	},
+	"Angular Component": {
+	  "prefix": "lrj-component",
+	  "description": "Angular component",
+	  "body": [
+		"import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';",
+		"",
+		"@Component({",
+		"\tselector: '${1:selector-name}',",
+		"\tstandalone: true,",
+		"\tproviders: [],",
+		"\timports: [],",
+		"\ttemplateUrl: '${1:selector-name}.html',",
+		"\tstyleUrl: '${1:selector-name}.scss',",
+		"\tchangeDetection: ChangeDetectionStrategy.OnPush",
+		"})",
+		"",
+		"export class ${2:Name}Component implements OnInit {",
+		"",
+		"\t//@Input() state;",
+		"",
+  
+		"\tconstructor() { }",
+		"",
+		"\tngOnInit() { }$0",
+		"}"
+	  ]
+	},
+  
+	"Angular Form Component": {
+	  "prefix": "lrj-form-component",
+	  "description": "Angular form component",
+	  "body": [
+		"import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';",
+		"import { FormBuilder, FormGroup, Validators } from '@angular/forms';",
+		"",
+		"@Component({",
+		"\tselector: '${1:selector-name}',",
+		"\ttemplateUrl: '${1:selector-name}.html',",
+		"\tstyleUrl: '${1:selector-name}.scss',",
+		"\tchangeDetection: ChangeDetectionStrategy.OnPush",
+		"})",
+		"",
+		"export class ${3:Name}Component implements OnInit {",
+		"",
+		"\t//@Input() state;",
+		"\t@Output() onSubmit = new EventEmitter();",
+		"",
+  
+		"\tpublic form: FormGroup;",
+		"\tpublic submitted: boolean = false;",
+		"",
+  
+		"\tconstructor( private formBuilder: FormBuilder) { ",
+		"\t\tthis.setupForm();",
+		"\t}",
+		"",
+		"\tngOnInit() { }$0",
+		"",
+  
+		"\tsubmit() {",
+		"\t\tthis.submitted = true;",
+		"\t\tif(!this.form.valid) return;",
+		"\t\tthis.onSubmit.emit(this.form.value);",
+		"\t}",
+		"",
+  
+		"\tsetupForm() {",
+		"\t\tthis.form = this.formBuilder.group({})",
+		"\t}",
+		"",
+		"}"
+	  ]
+	},
+  
+	"Angular Service": {
+	  "prefix": "lrj-service",
+	  "description": "Angular service",
+	  "body": [
+		"import { Injectable } from '@angular/core';",
+		"",
+		"@Injectable({",
+		"\tprovidedIn: 'root'",
+		"})",
+		"",
+		"export class ${1:Name}Service {",
+		"$0",
+		"\tconstructor() { }",
+		"}"
+	  ]
+	},
+	"Angular Component Output": {
+	  "prefix": "lrj-output-event",
+	  "body": ["@Output() ${1:eventName} = new EventEmitter<${2:eventType}>();"],
+	  "description": "Angular @Output event and emitter"
+	},
+  
+	"Typescript Import": {
+	  "prefix": "lrj-import",
+	  "body": ["import { ${2:name} }from '${1:file}';", "$0"],
+	  "description": "Angular @Input"
+	},
 
-      "\tconstructor() { }",
-      "",
-      "\tngOnInit() { }$0",
-      "}"
-    ]
-  },
+	"Express Parse Request": {
+		"prefix": "lrj-parserequest",
+		"description": "Safe parse with Zod",
+		"body": [
+			"import { Request } from 'express';",
+			"import { z, safeParse } from '\\$lib/zod';",
+			"",
+			"const schema = z",
+			"\t.object({",
+			"\t})",
+			"\t.transform((data) => ({",
+			"\t}));",
+			"",
+			"export type ${1:propType} = z.infer<typeof schema>;",
+			"",
+			"export const parseRequest = (req: Request): ${1:propType} => {",
+			"\ttry {",
+			"\t\treturn safeParse(schema, req);",
+			"\t} catch (err) {",
+			"\t\tthrow err;",
+			"\t}",
+			"}"
+		]
 
-  "Angular Form Component": {
-    "prefix": "lrj-form-component",
-    "description": "Angular form component",
-    "body": [
-      "import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';",
-      "import { FormBuilder, FormGroup, Validators } from '@angular/forms';",
-      "",
-      "@Component({",
-      "\tselector: '${1:selector-name}',",
-      "\ttemplateUrl: '${1:selector-name}.html',",
-      "\tstyleUrl: '${1:selector-name}.scss',",
-      "\tchangeDetection: ChangeDetectionStrategy.OnPush",
-      "})",
-      "",
-      "export class ${3:Name}Component implements OnInit {",
-      "",
-      "\t//@Input() state;",
-      "\t@Output() onSubmit = new EventEmitter();",
-      "",
+	},
 
-      "\tpublic form: FormGroup;",
-      "\tpublic submitted: boolean = false;",
-      "",
-
-      "\tconstructor( private formBuilder: FormBuilder) { ",
-      "\t\tthis.setupForm();",
-      "\t}",
-      "",
-      "\tngOnInit() { }$0",
-      "",
-
-      "\tsubmit() {",
-      "\t\tthis.submitted = true;",
-      "\t\tif(!this.form.valid) return;",
-      "\t\tthis.onSubmit.emit(this.form.value);",
-      "\t}",
-      "",
-
-      "\tsetupForm() {",
-      "\t\tthis.form = this.formBuilder.group({})",
-      "\t}",
-      "",
-      "}"
-    ]
-  },
-
-  "Angular Service": {
-    "prefix": "lrj-service",
-    "description": "Angular service",
-    "body": [
-      "import { Injectable } from '@angular/core';",
-      "",
-      "@Injectable({",
-      "\tprovidedIn: 'root'",
-      "})",
-      "",
-      "export class ${1:Name}Service {",
-      "$0",
-      "\tconstructor() { }",
-      "}"
-    ]
-  },
-  "Angular Component Output": {
-    "prefix": "lrj-output-event",
-    "body": ["@Output() ${1:eventName} = new EventEmitter<${2:eventType}>();"],
-    "description": "Angular @Output event and emitter"
-  },
-
-  "Typescript Import": {
-    "prefix": "lrj-import",
-    "body": ["import { ${2:name} }from '${1:file}';", "$0"],
-    "description": "Angular @Input"
-  },
-
-  "Express Endpoint": {
-    "prefix": "lrj-endpoint",
-    "description": "Express Endpoint",
-    "body": [
-      "import { Request, Response, NextFunction} from 'express';",
-      "import { send } from '\\$lib';",
-      "",
-      "export const ${1:serviceName}Endpoint = async (req:Request, res:Response, next: NextFunction) => { ",
-      "\ttry {",
-      "\t\t send('ok', req, res);",
-      "\t}",
-      "\tcatch (err) {",
-      "\t\t next(err)",
-      "\t}",
-      "}"
-    ]
+  
+	"Express Endpoint": {
+	  "prefix": "lrj-endpoint",
+	  "description": "Express Endpoint",
+	  "body": [
+		"import { Request, Response, NextFunction} from 'express';",
+		"import { send } from '\\$lib';",
+		"",
+		"export const ${1:serviceName}Endpoint = async (req:Request, res:Response, next: NextFunction) => { ",
+		"\ttry {",
+		"\t\t send('ok', req, res);",
+		"\t}",
+		"\tcatch (err) {",
+		"\t\t next(err)",
+		"\t}",
+		"}"
+	  ]
+	}
   }
-}
+  
